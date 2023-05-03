@@ -25,9 +25,11 @@ function smoothScroll(target, duration) {
 
 let navbarLinks = document.querySelectorAll('.link');
 let logo = document.querySelector('.logo')
+let up = document.querySelector('#up')
 
 logo.addEventListener('click', scroll)
 navbarLinks.forEach(link => link.addEventListener('click', scroll));
+up.addEventListener('click', scroll)
 
 function scroll(e) {
   //e.preventDefault();
