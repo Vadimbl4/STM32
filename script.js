@@ -30,7 +30,7 @@ logo.addEventListener('click', scroll)
 navbarLinks.forEach(link => link.addEventListener('click', scroll));
 
 function scroll(e) {
-  e.preventDefault();
+  //e.preventDefault();
     var target = this.getAttribute('href');
     var duration = 1000;
     smoothScroll(target, duration);
@@ -61,77 +61,6 @@ function burgerMenu() {
   })
 }
 burgerMenu()
-
-
-
-
-const slider = document.querySelector('.slider');
-const images = slider.querySelectorAll('img');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-const pagination = document.querySelector('.pagination');
-
-let currentImageIndex = 0;
-
-images[currentImageIndex].classList.add('active');
-
-function showImage(index) {
-  images[currentImageIndex].classList.remove('active');
-  images[index].classList.add('active');
-  currentImageIndex = index;
-  updatePagination();
-}
-
-function nextImage() {
-  let newIndex = currentImageIndex + 1;
-  if (newIndex >= images.length) {
-    newIndex = 0;
-  }
-  showImage(newIndex);
-}
-
-function prevImage() {
-  let newIndex = currentImageIndex - 1;
-  if (newIndex < 0) {
-    newIndex = images.length - 1;
-  }
-  showImage(newIndex);
-}
-
-function updatePagination() {
-  pagination.innerHTML = '';
-  for (let i = 0; i < images.length; i++) {
-    const button = document.createElement('button');
-    button.addEventListener('click', () => showImage(i));
-    if (i === currentImageIndex) {
-      button.classList.add('active');
-    }
-    pagination.appendChild(button);
-  }
-}
-
-function autoScroll() {
-  nextImage();
-}
-
-let intervalId = setInterval(autoScroll, 3000);
-
-slider.addEventListener('mouseover', () => clearInterval(intervalId));
-slider.addEventListener('mouseout', () => intervalId = setInterval(autoScroll, 3000));
-
-nextButton.addEventListener('click', () => {
-  clearInterval(intervalId);
-  nextImage();
-  intervalId = setInterval(autoScroll, 3000);
-});
-
-prevButton.addEventListener('click', () => {
-  clearInterval(intervalId);
-  prevImage();
-  intervalId = setInterval(autoScroll, 3000);
-});
-
-updatePagination();
 
 
 // function smoothScroll(target, duration) {

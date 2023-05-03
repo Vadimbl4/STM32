@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Электронное учебно-методическое пособие</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../vars.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../responsive.css" />
+    <!-- <script src="script.js" defer></script> -->
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <a href="../index.html" class="logo">STM32</a>
+        <ul class="nav-links">
+          <li class="link_item"><a href="#about" class="link">О пособии</a></li>
+          <li class="link_item"><a href="#articles" class="link">Теория</a></li>
+          <li class="link_item"><a href="#" class="link">Тесты</a></li>
+          <li class="link_item"><a href="#" class="link">Лабораторные</a></li>
+        </ul>
+        <div class="burger">
+          <span></span>
+        </div>
+    </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <div class="container">
+          <h1>Лабораторные работы</h1>
+          <div class="labs">
+            <div class="more"><a href="https://github.com/Leonidov/STM32-Labs" target="_blank" class="accept">Исходники</a></div><br><br>
+            <div class="lab">
+              <h3>Лабораторная работа №1 (Lab 1 - Hello World)</h3>
+            <h4>Введение в Assembler Cortex-M3</h4>
+            <ul> Содержит 4 проекта:
+              <li>Keil_Assembler - проект Keil uVision 5 на языке Assembler.</li>
+              <li>Keil_C - проект Keil uVision 5 на языке C. В папке StdPeriphLib Version находится версия исходников с использованием библиотеки StdPeriphLib (устарело).</li>
+              <li>CubeIDE_Assembler - проект STM32CubeIDE 1.7 на языке Assembler.</li>
+              <li>CubeIDE_C - проект STM32CubeIDE 1.7 на языке C.</li>
+            </ul>
+            </div> <br>
+            <div class="lab">
+              <h3>Лабораторная работа №2 (Lab 2 - Interrupts)</h3>
+              <h4>Введение в прерывания</h4>
+              <ul>Реализовано два обработчика прерываний:
+                <li>по переполненю таймера TIM6 (раз в секунду меняется состояние светодиода);</li>
+                <li>по внешнему импульсу на линии EXTI9 (к PB9 подключена кнопка, по нажатию меняется состояние светодиода).</li>
+              </ul>
+            </div><br>
+            <div class="lab">
+              <h3>Лабораторная работа №3 (Lab 3 - UART+DMA)</h3>
+              <h4>Модуль USART, DMA</h4>
+              <ul>Демонстрирует работу с модулем USART и два подхода к передаче данных:
+                <li>через процессор (#define USE_DMA должен быть закомментирован);</li>
+                <li>через модуль DMA (#define USE_DMA должен быть раскомментирован).</li>
+              </ul>
+              <ul>Параметры UART:
+                <li>Скорость обмена: 115200 бод;</li>
+                <li>8 бит данных;</li>
+                <li>1 стоп-бит.</li>
+              </ul>
+              <ul>В папке Waveforms лежат осциллограммы для двух варинтов передачи данных.
+                <li>USART without DMA.png - передача по USART осуществляется через процессор.</li>
+                <li>USART with DMA.png - передача по USART осуществляется через модуль DMA.</li>
+              </ul>
+              <ul>На двух картинках:
+                <li>Канал А (синий) - сигнал на выводе PD7 (светодиод LED1).</li>
+                <li>Канал B (красный) - сигнал на выводе PD5 (USART2 TX Remapped).</li>
+              </ul>
+            </div><br>
+            <div class="lab">
+              <h3>Лабораторная работа №4 (Lab 4 - USB)</h3>
+              <h4>Работа с модулем АЦП</h4>
+              <p>Разработан проект аппаратного USB HS для STM32F429ZI. Данные, принятые с ПК, возвращаются обратно.</p>
+            </div>
+            <div class="lab">
+              <h3>Лабораторная работа №5 (Lab 5 - ADC)</h3>
+              <h4>Работа с модулем АЦП</h4>
+              <ul>Реализована работа с регулярной группой каналов АЦП ADC1:
+                <li>ADC1_IN14 - подключен к потенциометру.</li>
+                <li>ADC1_IN16 - внутренний канал, подключен к встроенному термодатчику.</li>
+              </ul>
+              <ul>Реализован простейший обработчик SCPI-подобных команд:
+                <li>*IDN? - считать идентификатор устройства. В ответ МК вернёт строку Lab 4 - ADC.</li>
+                <li>LED1 ON|OFF - включить/выключить светодиод LED1. В случае успешного выполнения команды МК вернёт строку OK. В случае неверного параметра (если это не ON или OFF) - Invalid Parameter.</li>
+                <li>ADC? - измерить напряжение на входе ADC1_IN14. В ответ МК вернёт значение напряжения в Вольтах.</li>
+                <li>TEMPER? - измерить температуру микроконтроллера. В ответ МК вернёт значение температуры в градусах Цельсия.
+                </li>
+              </ul>
+              <p>В случае получения неизвестной команды МК вернёт сообщение об ошибке Invalid Command.</p>
+            </div>
+            <div class="lab">
+              <h3>Лабораторная работа №6 (Lab 6 - DAC)</h3>
+              <h4>Работа с модулем ЦАП</h4>
+              <ul>Реализованы режимы работы ЦАП:
+                <li>установка постоянного напряжения;</li>
+                <li>генерирование синусоидального сигнала (с помощью модуля DMA);</li>
+                <li>генерирование шума;</li>
+                <li>генерирование треугольного сигнала.</li>
+              </ul>
+              <ul>Структура папок:
+                <li>WaveGenerator - содержит скрипты генерирования массива значений для синусоиды:<ul>
+                  <li>DAC_Sine - Swift.playground - playground для Xcode (язык Swift);</li>
+                  <li>DAC_Sine - MATLAB.m - скрипт Matlab. Генерирует только числовые значения.</li>
+                </ul></li>
+                <li>Waweforms - содержит осциллограммы с выхода ЦАП:<ul>
+                  <li>Command U 1.5.png - постоянное напряжение 1.5В (команда U 1.5).</li>
+                  <li>Command SIN 200.png - синусоида, TIM6->ARR = 200 (команда SIN 200).</li>
+                  <li>Command SIN 1500.png - синусоида, TIM6->ARR = 1500 (команда SIN 1500).</li>
+                  <li>Command TRIANGLE 1.png - треугольный сигнал, TIM6->ARR = 1 (команда TRIANGLE 1).</li>
+                  <li>Command TRIANGLE 5.png - треугольный сигнал, TIM6->ARR = 5 (команда TRIANGLE 5).</li>
+                </ul></li>
+                <li>Project - сам проект программы.</li>
+                <ul>Система команд по интерфейсу UART:
+                  <li>*IDN? - считать идентификатор устройства. В ответ МК вернёт строку Lab 5 - DAC.</li>
+                  <li>U [val] - установить постоянное напряжение на выходе ЦАП. [val] - значение напряжения в Вольтах, может находиться в диапазоне от 0.00 до 3.30В. В случае успешного выполнения команды МК вернёт ответ OK. Если значение [val] выходит за допустимый диапазон - Out of Range.</li>
+                  <li>SIN [val] - генерировать синусоидальный сигнал на выходе ЦАП. [val] - модуль счёта таймера TIM6, по которому генерируется запрос DMA. Может принимать значения от 0 до 65535. В случае успешного выполнения команды МК вернёт ответ OK.</li>
+                  <li>NOISE [val] - генерировать шум на выходе ЦАП. [val] - модуль счёта таймера TIM6, по которому запускается ЦАП. В случае успешного выполнения команды МК вернёт ответ OK.</li>
+                  <li>TRIANGLE [val] - генерировать сигнал треугольной формы на выходе ЦАП. [val] - модуль счёта таймера TIM6, по которому запускается ЦАП. В случае успешного выполнения команды МК вернёт ответ OK.</li>
+                </ul>
+              </ul>
+            </div> <br>
+            <div class="lab">
+              <h3>Лабораторная работа №7 (Lab 7 - FreeRTOS)</h3>
+              <h4>Введение в операционные системы реального времени</h4>
+              <p>Проект разработан в STM32CubeIDE.</p>
+              <ul>Данный проект демонстрирует:
+                <li>Реализацию многозадачности.</li>
+                <li>Работу с очередью.</li>
+                <li>Работу с семафорами.</li>
+              </ul>
+              <p>Структура проекта.png</p>
+              <ul>Очереди:
+                <li>UARTQueueHandle - очередь строк для отправки по UART.</li>
+              </ul>
+              <ul>Семафоры:
+                <li>BtnSemHandle - бинарный семафор, устанавливаемый по нажатию кнопки Btn.</li>
+              </ul>
+              <ul>Задачи:
+                <li>DefaultTask - пустая задача.</li>
+                <li>LED1Task - мигает светодиодом LED1 раз в секунду.</li>
+                <li>LED2Task - мигает светодиодом LED2 раз в две секунды.</li>
+                <li>LED3Task - инвертирует светодиод LED3, если сработал семафор BtnSemHandle (нажата кнопка Btn).</li>
+                <li>ReadBtnTask - считывает состояние кнопки Btn и, в случае нажатия, выставляет семафор BtnSemHandle.</li>
+                <li>ADCTask - считывает результат измерения АЦП и загружает полученное значение в регистр модуля ШИМ таймера TIM4, канал 2.</li>
+                <li>UARTTask - отправляет по модулю UART строки, находящиеся в очереди UARTQueueHandle.</li>
+              </ul>
+            </div> <br>
+            <div class="lab">
+              <h3>Лабораторная работа №8 (Lab 8 - FFT)</h3>
+              <h4>Дискретное преобразование Фурье</h4>
+              <ol>Реализована периодическая дискретизация сигнала с частотой 100кГц с использованием связки АЦП+DMA. Алгоритм работы программы:
+                <li>Производится заполнение первой половины буфера АЦП ADC_Buffer (256 из 512 элементов), после чего генерируется прерывание от DMA (DMA_ISR_HTIF1).</li>
+                <li>Производится ДПФ от первой половины буфера АЦП, в это время заполняется вторая половина буфера.</li>
+                <li>После заполнения всего буфера из 512 отсчётов DMA генерирует второе прерывание (DMA_ISR_TCIF1).</li>
+                <li>Производится ДПФ от второй половины буфера АЦП, в это время заполняется первая половина буфера.</li>
+                <li>Пункты 1-4 повторяются.</li>
+              </ol>
+              <p>Все результаты записываются в массив FFT_Results. По запросу от ПК можно передать содержимое как буфера АЦП, так и результаты ДПФ.</p>
+              <ul>Структура папок:
+                <li>PC Soft - содержит ПО для графического представления данных с АЦП и БПФ.<ul>
+                <li>ADC_Graph Source - Проект Qt Creator, Qt v5.4.</li>
+                <li>Lab 5-7 Prog - Windows.zip - Скомпилированное под Windows приложение.</li>
+                </ul></li>
+                <li>Waweforms - содержит скриншоты программы для различных форм сигнала (временная область и спектр соответственно):
+                  <ul>
+                    <li>Sine_1kHz_Time.png, Sine_1kHz_FFT.png - Синусоида частотой 1кГц.</li>
+                    <li>Sine_10kHz_Time.png, Sine_10kHz_FFT.png - Синусоида частотой 10кГц.</li>
+                    <li>Sine_90kHz_Time.png, Sine_90kHz_FFT.png - Синусоида частотой 90кГц. Обратить внимание, что частота синусоиды выше частоты Найквиста!</li>
+                    <li>Meandr_10kHz_Time.png, Meandr_10kHz_FFT.png - Меандр частотой 10кГц. Обратить внимание на гармоники.</li>
+                  </ul>
+                </li>
+                <li>Project - сам проект программы.</li>
+              </ul>
+              <ul>Система команд по интерфейсу UART:
+                <li>*IDN? - считать идентификатор устройства. В ответ МК вернёт строку Lab 7 - FFT.</li>
+                <li>ADC? - считать массив отсчётов во временной области. В ответ вернёт 256 числовых значений в HEX-формате (ведущие нули опускаются).</li>
+                <li>FFT? - считать массив отсчётов в частотной области. В ответ вернёт 256 числовых значений в HEX-формате (ведущие нули опускаются).</li>
+              </ul>
+            </div><br>
+            <div class="lab">
+              <h3>Дополнительно</h3>
+              <h4>ST-LINKIII-KEIL_SWO.dll - заменить в новых версиях Keil uVision 5 для совместимости с программатором ST Link 1 (платы STM32 Discovery Value Line).</h4>
+            </div>
+          </div>
+            
+      </section>
+      
+
+      <!-- <section id="articles">
+        <div class="container">
+          <h2>Теория</h2>
+            <span>Программирование STM 32</span>
+            <div class="articles-items">
+            <div class="articles-item">
+            <img src="./pics/932d2c4e2f257e924d4d45ab04ba0d45H350W500.jpeg" alt="Pic" />
+            <h3>Часть 1: Документация</h3>
+            <p>
+              Изучение документации микроконтроллера STM32
+            </p>
+            <div class="more">
+              <a href="http://dimoon.ru/obuchalka/stm32f1/stm32f1-dokumentatsiya.html" target="_blank" class="accept">Подробнее</a>
+            </div>
+          </div>
+          <div class="articles-item">
+            <img src="./pics/img0.png" alt="Pic" />
+            <h3>Часть 2: IAR + CMSIS</h3>
+            <p>
+              Библиотека CMSIS и подключение ее к проекту
+            </p>
+            <div class="more">
+              <a href="http://dimoon.ru/obuchalka/stm32f1/uroki-stm32f103-chast-2-iar-cmsis.html#more-508" target="_blank" class="accept">Подробнее</a>
+            </div>
+          </div>
+          <div class="articles-item">
+            <img src="./pics/4_1.png" alt="Pic" />
+            <h3>Часть 3: Система тактирования</h3>
+            <p>
+              Настройка микроконтроллера на работу от внешнего кварцевого резонатора
+            </p>
+            <div class="more">
+              <a href="http://dimoon.ru/obuchalka/stm32f1/uroki-stm32f103-chast-3-sistema-taktirovaniya.html" target="_blank" class="accept">Подробнее</a>
+            </div>
+          </div>
+
+          <div class="articles-item">
+            <img src="./pics/n1.png" alt="Pic" />
+            <h3> Настройка RCC</h3>
+            <p>
+              Регистры RCC и ее настройка
+            </p>
+            <div class="more">
+              <a href="http://dimoon.ru/obuchalka/stm32f1/uroki-stm32f103-chast-4-nastroyka-rcc.html" target="_blank" class="accept">Подробнее</a>
+            </div>
+          </div>
+          </div>
+
+          
+            <span>STM32CubeMx</span>
+            <div class="articles-items">
+            <div class="articles-item">
+              <img src="./pics/stm32cubemx-new-project.jpeg" alt="Pic" />
+              <h3>Быстрый старт с STM32CubeMx</h3>
+              <p>
+                Что такое STM32CubeMx и как этим пользоваться 
+              </p>
+              <div class="more">
+                <a href="https://microtechnics.ru/stm32cube-sozdanie-proekta/" target="_blank" class="accept">Подробнее</a>
+              </div>
+            </div>
+            </div>
+
+            
+              <span>STM32 и CubeIDE изучаем с нуля до мастера</span>
+              <div class="articles-items">
+              <div class="articles-item">
+                <img src="./pics/iRNB5e9bI14.jpeg" alt="Pic" />
+                <h3>Часть 1 - «Первые шаги»</h3>
+                <p>
+                  Что такое Cube IDE и как этим пользоваться
+                </p>
+                <div class="more">
+                  <a href="https://vk.com/@tdm_lab-stm32-i-cube-ide-izuchaem-s-nulya-do-mastera-za-rand-dnei-ch" target="_blank" class="accept">Подробнее</a>
+                </div>
+              </div>
+              <div class="articles-item">
+                <img src="./pics/-fPyeQNjXf4.jpeg" alt="Pic" />
+                <h3>Часть 2 - «Работа с АЦП — независимый режим»</h3>
+                <p>
+                  Работа аналого-цифрового преобразователя, встроенного в микроконтроллеры серии STM32F103
+                </p>
+                <div class="more">
+                  <a href="https://vk.com/@tdm_lab-stm32-i-cube-ide-izuchaem-s-nulya-do-mastera-za-rnd-dnei-ch" target="_blank" class="accept">Подробнее</a>
+                </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- <section class="benefits" id="benefits">
+        <div class="container">
+          <h2>Почему мы:</h2>
+          <ul class="benefits-list">
+            <li>
+              <h3>Качественные ингредиенты</h3>
+              <br />
+              Мы используем только свежие и качественные ингредиенты для
+              приготовления нашей пиццы. <br /><br />Мы закупаем их у
+              проверенных поставщиков, чтобы гарантировать вам вкусную и
+              безопасную пиццу.
+            </li>
+            <li>
+              <h3>Разнообразие вкусов</h3>
+              <br />
+              У нас вы найдете широкий выбор вкусов и размеров пиццы, чтобы
+              удовлетворить любой вкус и аппетит. <br /><br />Мы также
+              предлагаем различные закуски, салаты и десерты, чтобы сделать ваш
+              обед или ужин еще более разнообразным.
+            </li>
+            <li>
+              <h3>Удобное расположение</h3>
+              <br />
+              Наша пиццерия находится в удобном месте, что делает ее легко
+              доступной для всех наших клиентов. <br /><br />Мы также предлагаем
+              услугу доставки, чтобы вы могли наслаждаться нашей пиццей прямо у
+              себя дома.
+            </li>
+            <li>
+              <h3>Приветливый персонал</h3>
+              <br />
+              Наша команда профессиональных поваров и официантов готова
+              предложить вам быстрое и качественное обслуживание. <br /><br />Мы
+              всегда готовы помочь вам с выбором пиццы и ответить на любые
+              вопросы, которые у вас могут возникнуть.
+            </li>
+            <li>
+              <h3>Атмосфера</h3>
+              <br />
+              Наша пиццерия создает уютную и дружелюбную атмосферу, где вы
+              можете наслаждаться своей пиццей в компании друзей и семьи.
+              <br /><br />Мы также предлагаем услугу бронирования столиков,
+              чтобы вы могли заранее забронировать место для вашей компании.
+            </li>
+            <li>
+              <h3>Акции и скидки</h3>
+              <br />
+              Мы регулярно предлагаем специальные предложения и акции для наших
+              клиентов, чтобы вы могли наслаждаться нашей вкусной пиццей по
+              выгодным ценам.
+            </li>
+          </ul>
+          <p>
+            Мы готовы сделать все возможное, чтобы вы остались довольны нашей
+            пиццерией и нашим сервисом. Не стесняйтесь связаться с нами для
+            заказа или бронирования столика. Мы ждем вас в нашей пиццерии!
+          </p>
+        </div>
+      </section>
+
+
+      <section class="contact" id="contact">
+        <div class="container">
+          <h2>лорплор</h2>
+          <p>Pizza Land is located at:</p>
+          <address>
+            123 Main Street<br />
+            Anytown, USA 12345
+          </address>
+          <p>
+            Позвоните нам по телефону
+            <a href="tel:123-456-7890">123-456-7890</a>, чтобы сделать свой
+            заказ
+          </p>
+        </div>
+        <div class="container">
+          <h2>Напишите нам и мы перезвоним!</h2>
+          <form action="#">
+            <input type="text" placeholder="Имя" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Сообщение"></textarea>
+            <button type="submit">Отправить</button>
+          </form>
+        </div>
+      </section> -->
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2023 Все права защищены</p>
+      </div>
+    </footer>
+  </body>
+</html>

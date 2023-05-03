@@ -124,6 +124,12 @@ section p {
   margin-left: 20px;
 }
 
+#about h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 
 /* Articles section */
 
@@ -290,5 +296,3 @@ footer p {
 .more a {
   text-decoration: none;
 }
-
-
