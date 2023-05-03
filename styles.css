@@ -1,0 +1,294 @@
+/* Обнуляющие стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  background-color: var(--mainColor);
+  cursor: default;
+}
+
+/* Стили для контейнера */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Навигация */
+
+nav {
+  padding: 20px;
+  position: fixed;
+  z-index: 2352352;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  background-color: var(--mainColor);
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+/* Бургер меню */
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000000;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Стили для секций */
+
+section {
+  padding: 75px 0;
+}
+
+section h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+section p {
+  margin-bottom: 20px;
+}
+
+/* Hero section */
+
+.hero {
+  min-height: 100vh;
+  padding: 5% 0 1% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.hero div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero .hero-info {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+
+/* About section */
+
+#about ol li, #about ul li {
+  margin-left: 20px;
+}
+
+
+/* Articles section */
+
+#articles span{
+  display: block;
+  width: 100%;
+  font-size: 33px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.articles-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.articles-item {
+  flex-basis: calc(33.33% - 20px);
+  margin-bottom: 60px;
+}
+
+.articles-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  /* color: #f7dc6f; */
+}
+
+.benefits-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.benefits-list li {
+  background-color: var(--mainColor);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* Стили для контактной формы */
+
+form input,
+form textarea {
+  display: block;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  /* margin: 0 auto 20px auto; */
+  text-align: center;
+  border: 1px solid black;
+}
+
+form button {
+  display: block;
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: var(--mainColor);
+  color: #333;
+  cursor: pointer;
+}
+
+/* Стили для футера */
+
+footer {
+  background: var(--mainColor);
+  padding: 20px;
+}
+
+footer p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.accept {
+  background-color: var(--buttonColor);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accept::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  top: 0;
+  left: -100%;
+  transition: all 0.3s ease;
+}
+
+.accept:hover::before {
+  left: 0;
+}
+
+.accept:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.more a {
+  text-decoration: none;
+}
+
+
