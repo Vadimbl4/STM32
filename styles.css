@@ -71,177 +71,6 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* Стили для секций */
-
-section {
-  padding: 75px 0;
-}
-
-section h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-section p {
-  margin-bottom: 20px;
-}
-
-/* Hero section */
-
-.hero {
-  min-height: 100vh;
-  padding: 5% 0 1% 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-
-.hero div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero .hero-info {
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: 36px;
-  font-weight: bold;
-}
-
-
-/* About section */
-
-#about ol li, #about ul li {
-  margin-left: 20px;
-}
-
-#about h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-
-/* Articles section */
-
-#articles span{
-  display: block;
-  width: 100%;
-  font-size: 33px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.articles-items {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.articles-item {
-  flex-basis: calc(33.33% - 20px);
-  margin-bottom: 60px;
-}
-
-.articles-item img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.contact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-form input,
-form textarea,
-form button {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-
-
-
-
-
-.price {
-  font-size: 24px;
-  font-weight: bold;
-  /* color: #f7dc6f; */
-}
-
-.benefits-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.benefits-list li {
-  background-color: var(--mainColor);
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 20px;
-}
-
-/* Стили для контактной формы */
-
-form input,
-form textarea {
-  display: block;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  /* margin: 0 auto 20px auto; */
-  text-align: center;
-  border: 1px solid black;
-}
-
-form button {
-  display: block;
-  background: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background: var(--mainColor);
-  color: #333;
-  cursor: pointer;
-}
 
 /* Стили для футера */
 
@@ -255,44 +84,48 @@ footer p {
   text-align: center;
 }
 
-.accept {
-  background-color: var(--buttonColor);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+.inner-text {
+  padding: 5% 0 1% 0;
+}
+
+.inner-text h2{
+  text-align: center;
+}
+
+.inner-text img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Аккордеон */
+.accordion {
+  padding: 5% 0 1% 0;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
-
-.accept::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  top: 0;
-  left: -100%;
-  transition: all 0.3s ease;
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+  border-radius: 5px;
 }
-
-.accept:hover::before {
-  left: 0;
+.accordion-header {
+  padding: 10px;
+  background-color: #f2f2f2;
+  cursor: pointer;
 }
-
-.accept:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.accordion-content {
+  padding: 10px;
+  background-color: #fff;
+  display: none;
 }
-
-.more {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.accordion-content h2{
+  text-align: center;
 }
-
-.more a {
-  text-decoration: none;
+.accordion-content img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.accordion-item.active .accordion-content {
+  display: block;
 }
