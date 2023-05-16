@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 150px 20px;
 }
 
 /* Навигация */
@@ -32,7 +32,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
-  background-color: var(--mainColor);
+  background-color: var(--secondColor);
 }
 
 nav .logo {
@@ -50,6 +50,10 @@ nav ul {
 nav ul li {
   margin-left: 20px;
 }
+nav ul li:hover {
+  text-decoration: underline;
+}
+
 
 /* Бургер меню */
 
@@ -107,10 +111,15 @@ footer p {
 .accordion-item {
   border-bottom: 1px solid #ccc;
   border-radius: 5px;
+  margin-top: 20px;
+  transition: all .5s;
+}
+.accordion-header:hover{
+  background-color: white;
 }
 .accordion-header {
   padding: 10px;
-  background-color: #f2f2f2;
+  background-color: var(--secondColor);
   cursor: pointer;
 }
 .accordion-content {
@@ -128,4 +137,32 @@ footer p {
 }
 .accordion-item.active .accordion-content {
   display: block;
+}
+
+
+.labs {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.lab{
+  text-decoration: none;
+  color: black;
+  flex-basis: calc(33.33% - 20px);
+  height: 100px;
+  width: 200px;
+  background-color: var(--secondColor);
+  display: flex;
+   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lab:hover {
+  background-color: white;
+  cursor: pointer;
 }
