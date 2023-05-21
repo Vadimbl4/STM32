@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <title>Электронное учебно-методическое пособие</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../vars.css" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../responsive.css" />
+    <link rel="stylesheet" href="../styles/vars.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/responsive.css" />
+    <link rel="stylesheet" href="../styles/modal.css">
+    <script src="../vars.js" defer></script>
     <script src="../script.js" defer></script>
   </head>
   <body>
@@ -31,17 +33,17 @@
           <h1>Видеоматериалы</h1>
           <h3>Автор: ФРТК МФТИ<br/>Лекции читает: Эдгар Казиахмедов</h3>
           <div class="items">
-            <button onclick="openModal(0)" class="item"><span>Видео № 1</span><span>Вводная лекция</span></button>
-            <button onclick="openModal(1)" class="item"><span>Видео № 2</span><span>Сборка первого проекта</span></button>
-            <button onclick="openModal(2)" class="item"><span>Видео № 3</span><span>Ядро Cortex-M0</span></button>
-            <button onclick="openModal(3)" class="item"><span>Видео № 4</span><span>Система тиктирования и сброса</span></button>
-            <button onclick="openModal(4)" class="item"><span>Видео № 5</span><span>Порты ввода-вывода</span></button>
+            <button onclick="openModal(0, videos)" class="item"><span>Видео № 1</span><span>Вводная лекция</span></button>
+            <button onclick="openModal(1, videos)" class="item"><span>Видео № 2</span><span>Сборка первого проекта</span></button>
+            <button onclick="openModal(2, videos)" class="item"><span>Видео № 3</span><span>Ядро Cortex-M0</span></button>
+            <button onclick="openModal(3, videos)" class="item"><span>Видео № 4</span><span>Система тиктирования и сброса</span></button>
+            <button onclick="openModal(4, videos)" class="item"><span>Видео № 5</span><span>Порты ввода-вывода</span></button>
           </div>
           <div id="myModal" class="modal">
             <div class="modal-content">
-              <span class="modal-head"><h2 id="modalTitle">Модельное окно</h2><span class="close" onclick="closeModal()">&times;</span></span>
+              <span class="modal-head"><h2 id="modalTitle">Модальное окно</h2><span class="close" onclick="closeModal()">&times;</span></span>
               
-              <div id="modalContent">Это содержимое модельного окна.</div>
+              <div id="modalContent">Содержимое модального окна.</div>
             </div>
           </div>
       </section>
@@ -51,31 +53,6 @@
         <p>&copy; 2023 Все права защищены</p>
       </div>
     </footer>
-    <script>
-      // Функция открытия модального окна
-      function openModal(index) {
-        let modalContentArray = [
-      { title: "Вводная лекция", content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/qruwVBaNRsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>` },
-      { title: "Сборка первого проекта", content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/eMGKPx5rwMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>` },
-      {title: "Ядро Cortex-M0", content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/z8AqQY_WKKo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`},
-      {title: "Система тиктирования и сброса", content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/PP94Q0OYLkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`},
-      {title: "Порты ввода-вывода", content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/ynBOKPnYlyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`},
-    ];
 
-        let modal = document.getElementById("myModal");
-        let modalTitle = document.getElementById("modalTitle");
-        let modalContent = document.getElementById("modalContent");
-
-        modalTitle.textContent = modalContentArray[index].title;
-        modalContent.innerHTML = modalContentArray[index].content;
-      
-        modal.style.display = "flex";
-      }
-  
-      // Функция закрытия модального окна
-      function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-      }
-    </script>
   </body>
 </html>

@@ -1,3 +1,69 @@
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Бургер меню (для мобильных)
+
+function burgerMenu() {
+  const burger = document.querySelector('.burger')
+  const menu = document.querySelector('.nav-links')
+  const body = document.querySelector('body')
+  burger.addEventListener('click', () => {
+    if (!menu.classList.contains('active')) {
+      menu.classList.add('active')
+      burger.classList.add('active-burger')
+      body.classList.add('locked')
+    } else {
+      menu.classList.remove('active')
+      burger.classList.remove('active-burger')
+      body.classList.remove('locked')
+    }
+  })
+  menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('active')
+          burger.classList.remove('active-burger')
+          body.classList.remove('locked')
+        })
+  })
+}
+burgerMenu()
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Аккордеон
+
+const accordionItems = document.querySelectorAll('.accordion-item');
+
+accordionItems.forEach(item => {
+  const header = item.querySelector('.accordion-header');
+  header.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Модальное окно
+
+ // Открытие
+ function openModal(index, array) {
+
+  let modal = document.getElementById("myModal");
+  let modalTitle = document.getElementById("modalTitle");
+  let modalContent = document.getElementById("modalContent");
+
+  modalTitle.textContent = array[index].title;
+  modalContent.innerHTML = array[index].content;
+
+  modal.style.display = "block";
+}
+
+// Закрытие
+function closeModal() {
+  let modal = document.getElementById("myModal")
+  modal.style.display = "none";
+  modal.querySelector('iframe').src = 'none'
+}
+
+
+
 // function smoothScroll(target, duration) {
 //   var targetSection = document.querySelector(target);
 //   var targetPosition = targetSection.offsetTop;
@@ -39,30 +105,7 @@
 // }
 
 
-function burgerMenu() {
-  const burger = document.querySelector('.burger')
-  const menu = document.querySelector('.nav-links')
-  const body = document.querySelector('body')
-  burger.addEventListener('click', () => {
-    if (!menu.classList.contains('active')) {
-      menu.classList.add('active')
-      burger.classList.add('active-burger')
-      body.classList.add('locked')
-    } else {
-      menu.classList.remove('active')
-      burger.classList.remove('active-burger')
-      body.classList.remove('locked')
-    }
-  })
-  menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menu.classList.remove('active')
-          burger.classList.remove('active-burger')
-          body.classList.remove('locked')
-        })
-  })
-}
-burgerMenu()
+
 
 
 // function smoothScroll(target, duration) {
@@ -106,11 +149,3 @@ burgerMenu()
 // });
 // Этот код получает все ссылки в навбаре и добавляет обработчик событий клика. Когда пользователь кликает на ссылку, функция `smoothScroll` вызывается с аргументами `target` и `duration`, которые получаются из атрибутов `href` и `data-duration` соответственно. Функция `preventDefault` предотвращает стандартное поведение ссылки, чтобы страница не перезагружалась.
 
-const accordionItems = document.querySelectorAll('.accordion-item');
-
-accordionItems.forEach(item => {
-  const header = item.querySelector('.accordion-header');
-  header.addEventListener('click', () => {
-    item.classList.toggle('active');
-  });
-});
