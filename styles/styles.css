@@ -86,19 +86,7 @@ footer p {
   text-align: center;
 }
 
-.inner-text {
-  padding: 5% 0 1% 0;
-}
 
-.inner-text h2 {
-  text-align: center;
-}
-
-.inner-text img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /* Аккордеон */
 .accordion {
@@ -136,6 +124,8 @@ footer p {
   display: block;
 }
 
+
+/* Сетка */
 .items {
   margin-top: 50px;
   display: flex;
@@ -167,9 +157,4 @@ footer p {
 .item:hover {
   background-color: white;
   cursor: pointer;
-}
-
-.videos .item {
-  height: 300px;
-  width: 600px;
 }

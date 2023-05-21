@@ -28,7 +28,7 @@
     </header>
 
     <main>
-      <section id="about">
+      <section>
         <div class="container">
           <h1>Видеоматериалы</h1>
           <h3>Автор: ФРТК МФТИ<br/>Лекции читает: Эдгар Казиахмедов</h3>
@@ -39,13 +39,18 @@
             <button onclick="openModal(3, videos)" class="item"><span>Видео № 4</span><span>Система тиктирования и сброса</span></button>
             <button onclick="openModal(4, videos)" class="item"><span>Видео № 5</span><span>Порты ввода-вывода</span></button>
           </div>
+
           <div id="myModal" class="modal">
             <div class="modal-content">
-              <span class="modal-head"><h2 id="modalTitle">Модальное окно</h2><span class="close" onclick="closeModal()">&times;</span></span>
+              <span class="modal-head">
+                <h2 id="modalTitle">Модальное окно</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+              </span>
               
               <div id="modalContent">Содержимое модального окна.</div>
             </div>
           </div>
+          
       </section>
     </main>
     <footer>
