@@ -33,7 +33,17 @@ const accordionItems = document.querySelectorAll('.accordion-item');
 
 accordionItems.forEach((item) => {
   const header = item.querySelector('.accordion-header');
+  const content = item.querySelector('.accordion-content');
+
   header.addEventListener('click', () => {
+    if (item.classList.contains('active')) {
+      content.innerHTML = '';
+      item.classList.toggle('active');
+      return;
+    }
+
+    let article = articles.find((el) => el.title === header.innerText);
+    content.innerHTML = article.content;
     item.classList.toggle('active');
   });
 });
@@ -57,7 +67,46 @@ function openModal(index, array) {
 function closeModal() {
   let modal = document.getElementById('myModal');
   modal.style.display = 'none';
-  modal.querySelector('iframe').src = 'none';
+  modal.querySelector('iframe')
+    ? (modal.querySelector('iframe').src = 'none')
+    : null;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Тесты
+
+function checkAnswers(correctAnswers) {
+  let totalQuestions = correctAnswers.length;
+  let score = 0;
+
+  for (let i = 1; i <= totalQuestions; i++) {
+    let selectedOption = document.querySelector(
+      'input[name="q' + i + '"]:checked'
+    );
+    if (selectedOption) {
+      let selectedValue = parseInt(selectedOption.value);
+      if (selectedValue === correctAnswers[i - 1]) {
+        score++;
+      }
+    }
+  }
+
+  var result = document.getElementById('result');
+  result.innerHTML = 'Ваш результат: ' + score + ' из ' + totalQuestions;
+  switch (score) {
+    case totalQuestions:
+      result.style.color = 'green'; // Зеленый цвет текста
+      break;
+    case 2:
+      result.style.color = 'orange'; // Желтый цвет текста
+      break;
+    case 1:
+    case 0:
+      result.style.color = 'red'; // Красный цвет текста
+      break;
+    default:
+      result.style.color = 'black'; // Черный цвет текста по умолчанию
+  }
 }
 
 // function smoothScroll(target, duration) {

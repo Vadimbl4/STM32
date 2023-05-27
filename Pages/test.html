@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/vars.css" />
     <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="stylesheet" href="../styles/responsive.css" />
+    <link rel="stylesheet" href="../styles/modal.css" />
     <script src="../script.js" defer></script>
+    <script src="../vars.js"></script>
   </head>
   <body>
 
@@ -20,35 +21,31 @@
           <li class="link_item"><a href="./videos.html" class="link">Видеоматериалы</a></li>
         </ul>
         <div class="burger">
-          <span></span>
+           
         </div>
     </nav>
     </header>
 
     <main>
-      <section>
         <div class="container">
           <h1>Тесты</h1>
           <div class="items">
-            <a href="#" class="item"><span>Тест 1</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 2</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 3</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 4</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 5</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 6</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 7</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 8</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 9</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 10</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 11</span><span>Тема теста</span></a>
-            <a href="#" class="item"><span>Тест 12</span><span>Тема теста</span></a>
+            <button onclick="openModal(0, tests)" class="item"><span>STM32</span><span>Общие вопросы</span></button>
+            <button onclick="openModal(1, tests)" class="item"><span>Система тактирования</span><span>Частоты</span></button>
+            <button onclick="openModal(2, tests)" class="item"><span>Генераторы тактового сигнала</span><span>Виды, частоты</span></button>
           </div>
-      </section>
+
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="modal-head">
+                <h2 id="modalTitle">Модальное окно</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+              </span>
+              
+              <div id="modalContent">Содержимое модального окна.</div>
+            </div>
+          </div>
     </main>
-    <footer>
-      <div class="container">
-        <p>&copy; 2023 Все права защищены</p>
-      </div>
-    </footer>
+
   </body>
 </html>
